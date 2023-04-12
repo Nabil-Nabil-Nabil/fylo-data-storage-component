@@ -1,0 +1,233 @@
+:root {
+    /* My Range Value */
+    --range-value: 75%;
+
+    /* Primary */
+    --Gradient-1:       hsl(6, 100%, 80%);
+    --Gradient-2:       hsl(335, 100%, 65%);
+
+    /* Neutral */
+    --Pale-Blue:        hsl(243, 100%, 93%);
+    --Grayish-Blue:     hsl(229, 7%, 55%);
+    --Dark-Blue:        hsl(228, 56%, 26%);
+    --Very-Dark-Blue:   hsl(229, 57%, 11%);
+
+    --width:            hsl(0, 0%, 100%);
+
+    --fw-400: 400;
+    --fw-700: 700;
+}
+
+/* Global Style */
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+img,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+/* Body Stayle Just For This Project */
+body {
+    font-size: .875rem;
+    font-family: 'Raleway', sans-serif;
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: url(images/bg-desktop.png);
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-color: var(--Very-Dark-Blue);
+}
+@media (max-width: 990px) {
+    body {
+        background: url(images/bg-mobile.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: var(--Very-Dark-Blue);
+    }
+}
+
+/* Main ********************************** */
+main {
+    /* background-color: red; */
+    display: flex;
+    gap: 2rem;
+    align-items: flex-end;
+}
+@media (max-width: 990px) {
+    main {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+/* "Fylo" Div ---------------------------- */
+.fylo-div {
+    background-color: var(--Dark-Blue);
+    padding: 2.5rem;
+    padding-right: 8rem;
+
+    border-radius: 1rem;
+    border-top-right-radius: 6rem;
+
+    display: grid;
+    gap: 2rem;
+}
+/* Icons Div -------------- */
+.fylo-div .icons-div {
+    display: flex;
+    gap: 1rem;
+}
+.fylo-div .icons-div div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 3rem;
+    aspect-ratio: 1;
+
+    border-radius: .5rem;
+    background-color: var(--Very-Dark-Blue);
+}
+/* Info Div ------------------------------ */
+.info-div {
+    padding: 2.5rem;
+    border-radius: 1rem;
+
+    display: grid;
+    gap: .5rem;
+
+    background-color: var(--Dark-Blue);
+
+    position: relative;
+}
+/* Text Div --------------- */
+.info-div .text {
+    font-size: .9rem;
+    font-weight: var(--fw-400);
+    color: var(--Grayish-Blue);
+}
+.info-div .text span {
+    font-size: .9rem;
+    font-weight: var(--fw-700);
+    color: var(--Pale-Blue);
+}
+/* Range Div -------------- */
+.info-div .range-div {
+    width: 29rem;
+    height: 1.2rem;
+
+    margin-top: .5rem;
+
+    border-radius: .6rem;
+    border: 3px solid var(--Very-Dark-Blue);
+
+    background-color: var(--Very-Dark-Blue);
+
+    position: relative;
+}
+@media (max-width: 990px) {
+    .info-div .range-div {
+        width: 16.25rem;
+    }
+}
+.info-div .range-div::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: var(--range-value);
+    height: 100%;
+    background: linear-gradient(90deg, hsl(6, 100%, 80%) 0%, hsl(335, 100%, 65%) 100%);
+
+    border-radius: inherit;
+}
+.info-div .range-div::after {
+    content: "";
+    position: absolute;
+    left: var(--range-value);
+    top: 0;
+
+    transform: translate(-117%, 12%);
+
+    height: 80%;
+    aspect-ratio: 1;
+    background-color: white;
+
+    border-radius: inherit;
+}
+
+
+/* "GB" Number Div -------- */
+.info-div .gb-div {
+    display: flex;
+    justify-content: space-between;
+    
+    font-size: .8rem;
+    font-weight: var(--fw-400);
+    color: var(--Pale-Blue);
+}
+
+/* "GB LEFT" Div ---------- */
+.info-div .gb-left-div {
+    position: absolute;
+    padding: .7rem 1.5rem;
+
+    right: 2rem;
+    top: 0;
+
+    transform: translate(0, -70%);
+
+    background-color: var(--width);
+
+    border-radius: .5rem;
+    border-bottom-right-radius: 0;
+
+}
+@media (max-width: 990px) {
+    .info-div .gb-left-div {
+        right: 50%;
+        top: 100%;
+        transform: translate(50%, -50%);
+        border-bottom-right-radius: .5rem;
+        padding: .7rem 1rem;
+    }
+}
+.info-div .gb-left-div::after {
+    content: "";
+    bottom: 0;
+    right: 0;
+    transform: translate(50%, 50%) rotate(-45deg);
+    
+    position: absolute;
+
+    border: 1rem solid transparent;
+    border-left-color: var(--width);
+}
+@media (max-width: 990px) {
+    .info-div .gb-left-div::after {
+        display: none;
+    }
+}
+.info-div .gb-left-div p {
+    font-size: 2.6rem;
+    font-weight: var(--fw-700);
+    color: var(--Very-Dark-Blue);
+
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+
+}
+.info-div .gb-left-div p span{
+    font-size: .9rem;
+    font-weight: var(--fw-400);
+    color: black;
+
+}
